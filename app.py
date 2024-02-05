@@ -9,6 +9,7 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 df = pd.read_csv("./Cleaned_Datasets/1fall_2019.csv")
 df2 = pd.read_csv("./Cleaned_Datasets/1spring_2020.csv")
 df3 = pd.concat([df, df2])
+total = df3["Cost Savings ($)"].sum()
 
 SIDEBAR_STYLE = {
     "position": "fixed",
@@ -20,8 +21,6 @@ SIDEBAR_STYLE = {
     "background-color": "#f8f9fa",
 }
 
-# the styles for the main content position it to the right of the sidebar and
-# add some padding.
 CONTENT_STYLE = {
     "margin-left": "18rem",
     "margin-right": "2rem",
@@ -30,7 +29,6 @@ CONTENT_STYLE = {
 
 sidebar = html.Div(
     [
-        html.H2("Sidebar", className="display-4"),
         html.Hr(),
         html.P("A simple sidebar layout with navigation links", className="lead"),
         dbc.Nav(
@@ -48,7 +46,7 @@ sidebar = html.Div(
 
 content = html.Div(id="page-content", style=CONTENT_STYLE)
 
-fig1 = px.bar(
+fig1 = px.histogram(
     df3,
     x="Department",
     y="Cost Savings ($)",
@@ -64,7 +62,10 @@ app.layout = dbc.Container(
             [
                 html.Div(
                     [
-                        html.H1("Hello World"),
+                        html.H3(
+                            f"The University of Iowa has saved students ${total:,.2f} in textbook costs in 19-20",
+                            className="text-center",
+                        ),
                         dcc.Graph(figure=fig1),
                         dcc.Dropdown(
                             id="category-dropdown",
@@ -94,6 +95,7 @@ def update_graph(selected_category):
     fig = px.bar(
         filtered_df, x="Course #", y="Cost Savings ($)", text="Cost Savings ($)"
     )
+    fig.update_xaxes(categoryorder="total descending")
     fig.update_traces(texttemplate="%{text:$,.0f}", textposition="outside")
     return fig
 
