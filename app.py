@@ -16,7 +16,7 @@ SIDEBAR_STYLE = {
     "top": 0,
     "left": 0,
     "bottom": 0,
-    "width": "16rem",
+    "width": "10%",
     "padding": "2rem 1rem",
     "background-color": "#f8f9fa",
 }
@@ -85,7 +85,7 @@ app.layout = dbc.Container(
             ]
         ),
     ],
-    style={"maxWidth": "70%"},
+    style={"maxWidth": "75%"},
 )
 
 
