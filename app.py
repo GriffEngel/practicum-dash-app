@@ -11,6 +11,18 @@ df2 = pd.read_csv("./Cleaned_Datasets/1spring_2020.csv")
 df3 = pd.concat([df, df2])
 total = df3["Cost Savings ($)"].sum()
 
+NAV = dbc.Nav(
+    [
+        dbc.NavItem(dbc.NavLink("Landing Page", active=True, href="#")),
+        dbc.NavItem(dbc.NavLink("2019-20", href="#")),
+        dbc.NavItem(dbc.NavLink("2020-21", href="#")),
+        dbc.NavItem(dbc.NavLink("2021-22", href="#")),
+        dbc.NavItem(dbc.NavLink("2022-23", href="#")),
+        dbc.NavItem(dbc.NavLink("2023-24", href="#")),
+    ],
+    class_name="d-flex justify-content-center fs-3",
+)
+
 fig1 = px.histogram(
     df3,
     x="Department",
@@ -22,12 +34,13 @@ fig1.update_xaxes(categoryorder="total descending")
 
 app.layout = dbc.Container(
     [
+        NAV,
         dbc.Row(
             [
                 html.Div(
                     [
                         html.H3(
-                            f"The University of Iowa has saved students ${total:,.2f} in textbook costs in 19-20",
+                            f"The University of Iowa saved students ${total:,.2f} in textbook costs in 19-20",
                             className="text-center",
                         ),
                         dcc.Graph(figure=fig1),
