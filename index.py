@@ -27,6 +27,7 @@ app.layout = dbc.Nav(
             html.Div(id="page-content", style={"padding": 10}),
         ]
     ),
+    class_name="nav justify-content-center",
 )
 
 
