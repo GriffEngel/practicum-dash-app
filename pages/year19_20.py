@@ -15,6 +15,7 @@ fig1 = px.histogram(
     y="Cost Savings ($)",
     title="2019-2020 Academic Year by Category",
 )
+fig1.update_layout(autosize=True)
 fig1.update_xaxes(categoryorder="total descending")
 
 
@@ -55,8 +56,19 @@ layout = dbc.Container(
 def update_graph(selected_category):
     filtered_df = df3[df3["Department"] == selected_category]
     fig = px.bar(
-        filtered_df, x="Course #", y="Cost Savings ($)", text="Cost Savings ($)"
+        filtered_df,
+        x="Course #",
+        y="Cost Savings ($)",
+        text="Cost Savings ($)",
+        title="Breakdown by Individual Course",
+        height=500,
     )
     fig.update_xaxes(categoryorder="total descending")
-    fig.update_traces(texttemplate="%{text:$,.0f}", textposition="outside")
+    fig.update_traces(
+        texttemplate="%{text:$,.0f}",
+        textposition="outside",
+    )
+    fig.update_layout(autosize=True)
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False, showticklabels=False)
     return fig

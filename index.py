@@ -11,7 +11,7 @@ app.layout = dbc.Nav(
                 [
                     dcc.Link("Home", href="/"),
                     html.Br(),
-                    dcc.Link("2019_20", href="/year19_20"),
+                    dcc.Link("2019-20", href="/year19_20"),
                     html.Br(),
                     dcc.Link("2020-21", href="/"),
                     html.Br(),
@@ -22,7 +22,7 @@ app.layout = dbc.Nav(
                     dcc.Link("2023-24", href="/"),
                 ],
                 style={"padding": 10, "flex": 1},
-                className="navbar d-flex justify-content-center gap-2 fs-4",
+                className="navbar d-flex justify-content-center gap-2 fs-4 link-offset-2",
             ),
             html.Div(id="page-content", style={"padding": 10}),
         ]
