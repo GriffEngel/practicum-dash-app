@@ -36,7 +36,7 @@ layout = dbc.Container(
                                 {"label": i, "value": i}
                                 for i in df3["Department"].unique()
                             ],
-                            value="Education",
+                            value="Economics",
                         ),
                     ]
                 ),
