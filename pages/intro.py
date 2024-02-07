@@ -30,6 +30,7 @@ layout = (
             html.P(
                 "Click on the corresponding link to see cost savings data for each academic year"
             ),
+            # TODO: Make this look better
             html.Div([dcc.Graph(figure=fig)]),
         ],
     ),
