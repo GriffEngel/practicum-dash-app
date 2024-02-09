@@ -63,7 +63,6 @@ def update_graph(selected_category):
         y="Cost Savings ($)",
         text="Cost Savings ($)",
         title="Breakdown by Individual Course",
-        height=500,
     )
     fig.update_xaxes(categoryorder="total descending")
     fig.update_traces(

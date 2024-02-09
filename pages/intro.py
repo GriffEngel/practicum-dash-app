@@ -21,30 +21,41 @@ data = {
     "Total Cost Savings ($)": [191196.90, 301354.38, 300769.68, 466356.72],
 }
 df11 = pd.DataFrame(data)
-
+# text_labels = [f"{val:,.2f}" for val in data["Total Cost Savings ($)"]]
+text_labels1 = [191196.90, 301354.38, 300769.68, 455356.72]
 fig = go.Figure()
 fig.add_trace(
     go.Scatter(
         x=df11["Academic Year"],
         y=df11["Total Cost Savings ($)"],
-        mode="lines+markers",
+        mode="lines+markers+text",
         marker=dict(
-            size=10,
+            size=12,
             color="#FFCD00",
             symbol="circle",
         ),
-        line=dict(color="FireBrick", width=4, dash="dash"),
-    )
+        line=dict(color="lightgray", width=3),
+        text=text_labels1,
+        texttemplate="%{text:$,.2f}",
+        textposition=["bottom right", "bottom right", "bottom right", "top left"],
+        textfont=dict(
+            color="#FFCD00",
+            size=18,
+        ),
+    ),
 )
+
 fig.update_layout(
     title="Total Cost Savings by Academic Year",
-    xaxis_title="Academic Year",
-    yaxis_title="Cost Savings ($)",
+    plot_bgcolor="darkgray",
+    width=1000,
 )
-fig.update_yaxes(range=[0, 500000])
+fig.update_xaxes(title="Academic Year", gridcolor="lightgray")
+fig.update_yaxes(range=[0, 600000], title="Cost Savings ($)", gridcolor="lightgray")
+
 # fig = px.line(df11, x="Academic Year", y="Total Cost Savings ($)")
 
-layout = (
+layout = dbc.Container(
     html.Div(
         [
             html.H1("OpenHawks OER Report", className="fs-1 text-center"),
@@ -55,4 +66,5 @@ layout = (
             html.Div([dcc.Graph(figure=fig)]),
         ],
     ),
+    class_name="width-auto",
 )
