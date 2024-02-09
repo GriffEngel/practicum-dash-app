@@ -1,7 +1,8 @@
 from dash import html, dcc
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
+
 
 # *========== Keep for Later if Needed ============
 # df = pd.read_csv("./Cleaned_Datasets/1fall_2019.csv")
@@ -21,7 +22,27 @@ data = {
 }
 df11 = pd.DataFrame(data)
 
-fig = px.line(df11, x="Academic Year", y="Total Cost Savings ($)")
+fig = go.Figure()
+fig.add_trace(
+    go.Scatter(
+        x=df11["Academic Year"],
+        y=df11["Total Cost Savings ($)"],
+        mode="lines+markers",
+        marker=dict(
+            size=10,
+            color="#FFCD00",
+            symbol="circle",
+        ),
+        line=dict(color="FireBrick", width=4, dash="dash"),
+    )
+)
+fig.update_layout(
+    title="Total Cost Savings by Academic Year",
+    xaxis_title="Academic Year",
+    yaxis_title="Cost Savings ($)",
+)
+fig.update_yaxes(range=[0, 500000])
+# fig = px.line(df11, x="Academic Year", y="Total Cost Savings ($)")
 
 layout = (
     html.Div(
