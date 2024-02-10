@@ -64,12 +64,12 @@ def update_graph(selected_category):
         text="Cost Savings ($)",
         title="Breakdown by Individual Course",
     )
+    fig.update_layout(height=700)
     fig.update_xaxes(categoryorder="total descending")
     fig.update_traces(
         texttemplate="%{text:$,.0f}",
         textposition="outside",
     )
-    fig.update_layout(autosize=True)
     fig.update_xaxes(showgrid=False)
     fig.update_yaxes(showgrid=False, showticklabels=False)
     return fig
