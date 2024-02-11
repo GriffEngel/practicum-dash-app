@@ -41,7 +41,18 @@ layout = dbc.Container(
                 ),
                 dbc.Row(
                     [
-                        dbc.Col([html.Div([dcc.Graph(id="category-bar-graph19-20")])]),
+                        dbc.Col(
+                            [
+                                html.Div(
+                                    [
+                                        dcc.Graph(
+                                            id="category-bar-graph19-20",
+                                            style={"height": "63vh"},
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
                     ]
                 ),
             ]
@@ -64,7 +75,7 @@ def update_graph(selected_category):
         text="Cost Savings ($)",
         title="Breakdown by Individual Course",
     )
-    fig.update_layout(height=600)
+    fig.update_layout(height=550)
     fig.update_xaxes(categoryorder="total descending")
     fig.update_traces(
         texttemplate="%{text:$,.0f}",

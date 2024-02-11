@@ -28,7 +28,7 @@ layout = dbc.Container(
                             f"The University of Iowa saved students ${total:,.2f} in textbook costs in 22-23",
                             className="text-center fs-5",
                         ),
-                        dcc.Graph(figure=fig1),
+                        dcc.Graph(figure=fig1, style={"width": "80vw"}),
                         dcc.Dropdown(
                             id="category-dropdown22-23",
                             options=[
@@ -47,6 +47,7 @@ layout = dbc.Container(
                                     [
                                         dcc.Graph(
                                             id="category-bar-graph22-23",
+                                            style={"height": "63vh"},
                                         )
                                     ]
                                 )
