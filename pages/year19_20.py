@@ -28,7 +28,7 @@ layout = dbc.Container(
                             f"The University of Iowa saved students ${total:,.2f} in textbook costs in 19-20",
                             className="text-center fs-5",
                         ),
-                        dcc.Graph(figure=fig1),
+                        dcc.Graph(figure=fig1, style={"width": "68vw"}),
                         dcc.Dropdown(
                             id="category-dropdown19-20",
                             options=[
@@ -64,7 +64,7 @@ def update_graph(selected_category):
         text="Cost Savings ($)",
         title="Breakdown by Individual Course",
     )
-    fig.update_layout(height=700)
+    fig.update_layout(height=600)
     fig.update_xaxes(categoryorder="total descending")
     fig.update_traces(
         texttemplate="%{text:$,.0f}",

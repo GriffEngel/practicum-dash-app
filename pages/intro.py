@@ -47,13 +47,13 @@ fig.add_trace(
 
 fig.update_layout(
     title="Total Cost Savings by Academic Year",
-    plot_bgcolor="darkgray",
+    plot_bgcolor="#252525",
     width=1000,
 )
-fig.update_xaxes(title="Academic Year", gridcolor="lightgray")
-fig.update_yaxes(range=[0, 600000], title="Cost Savings ($)", gridcolor="lightgray")
-
-# fig = px.line(df11, x="Academic Year", y="Total Cost Savings ($)")
+fig.update_xaxes(title="Academic Year", gridcolor="lightslategray")
+fig.update_yaxes(
+    range=[0, 600000], title="Cost Savings ($)", gridcolor="lightslategray"
+)
 
 layout = dbc.Container(
     html.Div(
