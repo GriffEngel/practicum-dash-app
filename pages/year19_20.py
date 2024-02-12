@@ -1,6 +1,7 @@
 from dash import html, dcc, callback, Output, Input
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
 
@@ -9,13 +10,36 @@ df2 = pd.read_csv("./Cleaned_Datasets/1spring_2020.csv")
 df3 = pd.concat([df, df2])
 total = df3["Cost Savings ($)"].sum()
 
-fig1 = px.histogram(
-    df3,
-    x="Department",
-    y="Cost Savings ($)",
-    title="2019-2020 Academic Year by Category",
+aggregated_df = df3.groupby("Department")["Cost Savings ($)"].sum().reset_index()
+
+# Create the bar chart
+fig1 = go.Figure()
+
+fig1.add_trace(
+    go.Bar(
+        x=aggregated_df["Department"],
+        y=aggregated_df["Cost Savings ($)"],
+        marker=dict(color="blue"),
+    )
+)
+
+fig1.update_layout(
+    title="Cost Savings by Department",
+    xaxis_title="Department",
+    yaxis_title="Cost Savings",
+    yaxis_tickprefix="$",
+    yaxis_tickformat=",.0f",
 )
 fig1.update_xaxes(categoryorder="total descending")
+
+
+# fig1 = px.histogram(
+#     df3,
+#     x="Department",
+#     y="Cost Savings ($)",
+#     title="2019-2020 Academic Year by Category",
+# )
+# fig1.update_xaxes(categoryorder="total descending")
 
 
 layout = dbc.Container(
@@ -68,19 +92,25 @@ layout = dbc.Container(
 )
 def update_graph(selected_category):
     filtered_df = df3[df3["Department"] == selected_category]
-    fig = px.bar(
-        filtered_df,
-        x="Course #",
-        y="Cost Savings ($)",
-        text="Cost Savings ($)",
-        title="Breakdown by Individual Course",
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            x=filtered_df["Course #"],
+            y=filtered_df["Cost Savings ($)"],
+            text=filtered_df["Cost Savings ($)"],
+            marker=dict(color="#005CFE"),
+        )
     )
-    fig.update_layout(height=550)
-    fig.update_xaxes(categoryorder="total descending")
+
+    fig.update_layout(
+        title="Breakdown by Individual Course",
+        height=550,
+        xaxis=dict(categoryorder="total descending", showgrid=False),
+        yaxis=dict(showgrid=False, showticklabels=False),
+    )
     fig.update_traces(
         texttemplate="%{text:$,.0f}",
         textposition="outside",
     )
-    fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=False, showticklabels=False)
+
     return fig

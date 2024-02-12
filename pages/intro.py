@@ -31,15 +31,15 @@ fig.add_trace(
         mode="lines+markers+text",
         marker=dict(
             size=12,
-            color="#FFCD00",
+            color="#005CFE",
             symbol="circle",
         ),
-        line=dict(color="lightgray", width=3),
+        line=dict(color="darkgray", width=3),
         text=text_labels1,
         texttemplate="%{text:$,.2f}",
         textposition=["bottom right", "bottom right", "bottom right", "top left"],
         textfont=dict(
-            color="#FFCD00",
+            color="#005CFE",
             size=18,
         ),
     ),
@@ -47,12 +47,21 @@ fig.add_trace(
 
 fig.update_layout(
     title="Total Cost Savings by Academic Year",
-    plot_bgcolor="#252525",
+    plot_bgcolor="#F2F2F2",
     width=1000,
 )
-fig.update_xaxes(title="Academic Year", gridcolor="lightslategray")
-fig.update_yaxes(
-    range=[0, 600000], title="Cost Savings ($)", gridcolor="lightslategray"
+fig.update_xaxes(title="Academic Year", gridcolor="lightgray")
+fig.update_yaxes(range=[0, 600000], title="Cost Savings ($)", gridcolor="lightgray")
+fig.add_annotation(
+    x=2.5,
+    y=400000,
+    text="51% increase",
+    arrowhead=1,
+    font=dict(family="Balto, sans-serif", size=14, color="#005CFE"),
+    ax=-75,
+    ay=-15,
+    arrowwidth=2,
+    arrowcolor="#005CFE",
 )
 
 layout = dbc.Container(
@@ -60,9 +69,9 @@ layout = dbc.Container(
         [
             html.H1("OpenHawks OER Report", className="fs-1 text-center"),
             html.P(
-                "Click on the corresponding link to see cost savings data for each academic year"
+                "Click on the corresponding link to see cost savings data for each academic year",
+                className="text-center",
             ),
-            # TODO: Make this look better
             html.Div([dcc.Graph(figure=fig)]),
         ],
     ),
