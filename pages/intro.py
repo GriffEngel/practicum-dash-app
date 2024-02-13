@@ -48,10 +48,15 @@ fig.add_trace(
 fig.update_layout(
     title="Total Cost Savings by Academic Year",
     plot_bgcolor="#F2F2F2",
-    width=1000,
+    # width=1000,
+    font_size=15,
 )
 fig.update_xaxes(title="Academic Year", gridcolor="lightgray")
-fig.update_yaxes(range=[0, 600000], title="Cost Savings ($)", gridcolor="lightgray")
+fig.update_yaxes(
+    range=[0, 600000],
+    title="Cost Savings ($)",
+    gridcolor="lightgray",
+)
 fig.add_annotation(
     x=2.5,
     y=400000,
@@ -72,8 +77,8 @@ layout = dbc.Container(
                 "Click on the corresponding link to see cost savings data for each academic year",
                 className="text-center",
             ),
-            html.Div([dcc.Graph(figure=fig)]),
+            html.Div([dcc.Graph(figure=fig)], className="w-75 mx-auto"),
         ],
     ),
-    class_name="width-auto",
+    class_name="vw-100",
 )
