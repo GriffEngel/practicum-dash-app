@@ -1,6 +1,5 @@
 from dash import html, dcc, callback, Output, Input
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
@@ -29,8 +28,10 @@ fig1.update_layout(
     yaxis_title="Cost Savings",
     yaxis_tickprefix="$",
     yaxis_tickformat=",.0f",
+    plot_bgcolor="#F2F2F2",
 )
-fig1.update_xaxes(categoryorder="total descending")
+fig1.update_xaxes(categoryorder="total descending", showgrid=False)
+fig1.update_yaxes(gridcolor="lightgray")
 
 
 # fig1 = px.histogram(
