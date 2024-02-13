@@ -1,5 +1,6 @@
 from dash import html, dcc, callback, Output, Input
 import pandas as pd
+import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
@@ -11,7 +12,6 @@ total = df3["Cost Savings ($)"].sum()
 
 aggregated_df = df3.groupby("Department")["Cost Savings ($)"].sum().reset_index()
 
-# Create the bar chart
 fig1 = go.Figure()
 
 fig1.add_trace(
@@ -29,31 +29,23 @@ fig1.update_layout(
     yaxis_tickprefix="$",
     yaxis_tickformat=",.0f",
     plot_bgcolor="#F2F2F2",
+    font_size=13,
 )
 fig1.update_xaxes(categoryorder="total descending", showgrid=False)
 fig1.update_yaxes(gridcolor="lightgray")
-
-
-# fig1 = px.histogram(
-#     df3,
-#     x="Department",
-#     y="Cost Savings ($)",
-#     title="2019-2020 Academic Year by Category",
-# )
-# fig1.update_xaxes(categoryorder="total descending")
-
 
 layout = dbc.Container(
     [
         dbc.Row(
             [
+                # ! Extra Div needs to be here in order for dcc.Graph style to work
                 html.Div(
                     [
                         html.H3(
                             f"The University of Iowa saved students ${total:,.2f} in textbook costs in 19-20",
                             className="text-center fs-5",
                         ),
-                        dcc.Graph(figure=fig1, style={"width": "68vw"}),
+                        dcc.Graph(figure=fig1, style={"width": "77vw"}),
                         dcc.Dropdown(
                             id="category-dropdown19-20",
                             options=[
@@ -61,29 +53,22 @@ layout = dbc.Container(
                                 for i in df3["Department"].unique()
                             ],
                             value="Economics",
+                            clearable=False,
                         ),
                     ]
                 ),
                 dbc.Row(
                     [
-                        dbc.Col(
-                            [
-                                html.Div(
-                                    [
-                                        dcc.Graph(
-                                            id="category-bar-graph19-20",
-                                            style={"height": "63vh"},
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
+                        dcc.Graph(
+                            id="category-bar-graph19-20",
+                            style={"height": "63vh"},
+                        )
                     ]
                 ),
             ]
         ),
     ],
-    style={"maxWidth": "65%"},
+    style={"maxWidth": "75%"},
 )
 
 
@@ -93,25 +78,21 @@ layout = dbc.Container(
 )
 def update_graph(selected_category):
     filtered_df = df3[df3["Department"] == selected_category]
-    fig = go.Figure()
-    fig.add_trace(
-        go.Bar(
-            x=filtered_df["Course #"],
-            y=filtered_df["Cost Savings ($)"],
-            text=filtered_df["Cost Savings ($)"],
-            marker=dict(color="#005CFE"),
-        )
-    )
-
-    fig.update_layout(
+    fig = px.bar(
+        filtered_df,
+        x="Course #",
+        y="Cost Savings ($)",
+        text="Cost Savings ($)",
         title="Breakdown by Individual Course",
-        height=550,
-        xaxis=dict(categoryorder="total descending", showgrid=False),
-        yaxis=dict(showgrid=False, showticklabels=False),
+        height=500,
     )
+    fig.update_layout(autosize=True, plot_bgcolor="#F2F2F2", font_size=13)
+    fig.update_xaxes(categoryorder="total descending")
     fig.update_traces(
         texttemplate="%{text:$,.0f}",
         textposition="outside",
+        marker_color="blue",
     )
-
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False, showticklabels=False)
     return fig

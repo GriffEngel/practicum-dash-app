@@ -22,7 +22,7 @@ data = {
 }
 df11 = pd.DataFrame(data)
 # text_labels = [f"{val:,.2f}" for val in data["Total Cost Savings ($)"]]
-text_labels1 = [191196.90, 301354.38, 300769.68, 455356.72]
+text_labels1 = [191196.90, 301354.38, 300769.68, 466356.72]
 fig = go.Figure()
 fig.add_trace(
     go.Scatter(
@@ -60,7 +60,7 @@ fig.update_yaxes(
 fig.add_annotation(
     x=2.5,
     y=400000,
-    text="51% increase",
+    text="55% increase",
     arrowhead=1,
     font=dict(family="Balto, sans-serif", size=14, color="#005CFE"),
     ax=-75,

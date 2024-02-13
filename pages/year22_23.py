@@ -22,6 +22,7 @@ layout = dbc.Container(
     [
         dbc.Row(
             [
+                # ! Extra Div needs to be here in order for dcc.graph style to work
                 html.Div(
                     [
                         html.H3(
@@ -36,23 +37,16 @@ layout = dbc.Container(
                                 for i in df3["Department"].unique()
                             ],
                             value="Economics",
+                            clearable=False,
                         ),
-                    ]
+                    ],
                 ),
                 dbc.Row(
                     [
-                        dbc.Col(
-                            [
-                                html.Div(
-                                    [
-                                        dcc.Graph(
-                                            id="category-bar-graph22-23",
-                                            style={"height": "63vh"},
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
+                        dcc.Graph(
+                            id="category-bar-graph22-23",
+                            style={"height": "63vh"},
+                        )
                     ]
                 ),
             ]
