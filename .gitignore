@@ -223,3 +223,7 @@ pip-selfcheck.json
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,venv,jupyternotebooks,microsoftoffice
 
 __pycache__/
+/.venv
+/env
+.env
+Base_Dataset/
