@@ -1,7 +1,7 @@
 from dash import html, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
 from app import app
-from pages import intro, year19_20, year20_21, year21_22, year22_23
+from pages import intro, year19_20, year20_21, year21_22, year22_23, appendix
 
 app.layout = dbc.Nav(
     html.Div(
@@ -20,6 +20,8 @@ app.layout = dbc.Nav(
                     dcc.Link("2022-23", href="/year22_23"),
                     html.Br(),
                     dcc.Link("2023-24", href="/"),
+                    html.Br(),
+                    dcc.Link("Appendix", href="/appendix")
                 ],
                 style={"padding": 10, "flex": 1},
                 className="navbar d-flex justify-content-center gap-2 fs-4 link-offset-2",
@@ -45,6 +47,8 @@ def display_page(pathname):
         return year22_23.layout
     elif pathname == "/":
         return year23_24.layout
+    elif pathname == "/appendix":
+        return appendix.layout
     else:
         return "404"
 
