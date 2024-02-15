@@ -16,6 +16,7 @@ import dash_bootstrap_components as dbc
 # df9 = pd.read_csv("./Cleaned_Datasets/5spring_2023.csv")
 # df10 = pd.concat([df,df2,df3,df4,df5,df6,df7,df8,df9])
 
+# ------------------------- Total Cost Savings graph ------------------------- #
 data = {
     "Academic Year": ["2019-20", "2020-21", "2021-22", "2022-23"],
     "Total Cost Savings ($)": [191196.90, 301354.38, 300769.68, 466356.72],
@@ -44,11 +45,9 @@ fig.add_trace(
         ),
     ),
 )
-
 fig.update_layout(
     title="Total Cost Savings by Academic Year",
     plot_bgcolor="#F2F2F2",
-    # width=1000,
     font_size=15,
 )
 fig.update_xaxes(title="Academic Year", gridcolor="lightgray")
@@ -69,6 +68,7 @@ fig.add_annotation(
     arrowcolor="#005CFE",
 )
 
+# ---------------------------------- Layout ---------------------------------- #
 layout = dbc.Container(
     html.Div(
         [
