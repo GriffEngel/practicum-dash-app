@@ -25,9 +25,11 @@ data = {
     "Total Cost Savings ($)": [191196.90, 301354.38, 300769.68, 466356.72],
 }
 df11 = pd.DataFrame(data)
-# text_labels = [f"{val:,.2f}" for val in data["Total Cost Savings ($)"]]
+
 text_labels1 = [191196.90, 301354.38, 300769.68, 466356.72]
+
 fig = go.Figure()
+
 fig.add_trace(
     go.Scatter(
         x=df11["Academic Year"],
@@ -71,8 +73,39 @@ fig.add_annotation(
     arrowcolor="#005CFE",
 )
 
-# ----------------------------- Enrollment Chart ----------------------------- #
+# ------------------ Number of Departments using OERs Graph ------------------ #
+dept_data = {
+    "Academic Year": ["2019-20", "2020-21", "2021-22", "2022-23"],
+    "Number of Departments Using OERs": [15, 11, 19, 25],
+}
+df12 = pd.DataFrame(dept_data)
 
+fig2 = go.Figure()
+
+fig2.add_trace(
+    go.Scatter(
+        x=df12["Academic Year"],
+        y=df12["Number of Departments Using OERs"],
+        mode="lines+markers+text",
+        marker=dict(
+            size=12,
+            color="#005CFE",
+            symbol="circle",
+        ),
+        line=dict(color="darkgray", width=3),
+        textfont=dict(
+            color="#005CFE",
+            size=18,
+        ),
+    ),
+)
+fig2.update_layout(
+    plot_bgcolor="#F2F2F2",
+    font_size=15,
+    title="Number of Departments reporting OER Usage",
+    xaxis=dict(title="Academic Year", gridcolor="lightgray"),
+    yaxis=dict(title="Number of Departments", gridcolor="lightgray", range=[0, 30]),
+)
 
 # ---------------------------------------------------------------------------- #
 #                                    Layout                                    #
@@ -86,6 +119,7 @@ layout = dbc.Container(
                 className="text-center",
             ),
             html.Div([dcc.Graph(figure=fig)], className="w-75 mx-auto"),
+            html.Div([dcc.Graph(figure=fig2)], className="w-75 mx-auto"),
         ],
     ),
     class_name="vw-100",
