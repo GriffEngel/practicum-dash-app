@@ -120,6 +120,11 @@ layout = dbc.Container(
             ),
             html.Div([dcc.Graph(figure=fig)], className="w-75 mx-auto"),
             html.Div([dcc.Graph(figure=fig2)], className="w-75 mx-auto"),
+            html.Img(
+                src=("assets/Screenshot 2024-02-19 154257.png"),
+                height=600,
+                style={"width": "68vw"},
+            ),
         ],
     ),
     class_name="vw-100",
