@@ -113,7 +113,7 @@ fig2.update_layout(
 layout = dbc.Container(
     html.Div(
         [
-            html.H1("OpenHawks OER Report", className="fs-1 text-center"),
+            html.H1("University of Iowa OER Report", className="fs-1 text-center"),
             html.P(
                 "Click on the corresponding link to see cost savings data for each academic year",
                 className="text-center",
