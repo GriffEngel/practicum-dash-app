@@ -111,31 +111,21 @@ fig2.update_layout(
 #                                    Layout                                    #
 # ---------------------------------------------------------------------------- #
 layout = dbc.Container(
-    [
-        html.Div(
-            [
-                html.H1("OpenHawks OER Report", className="fs-1 text-center"),
-                html.P(
-                    "Click on the corresponding link to see cost savings data for each academic year",
-                    className="text-center",
-                ),
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col([html.Div([dcc.Graph(figure=fig)])]),
-                dbc.Col([html.Div([dcc.Graph(figure=fig2)])]),
-            ],
-        ),
-        html.Div(
-            [
-                html.Img(
-                    src=("assets/Screenshot 2024-02-19 154257.png"),
-                    height=550,
-                    className="mx-auto",
-                ),
-            ],
-        ),
-    ],
-    class_name="border border-primary vw-100",
+    html.Div(
+        [
+            html.H1("University of Iowa OER Report", className="fs-1 text-center"),
+            html.P(
+                "Click on the corresponding link to see cost savings data for each academic year",
+                className="text-center",
+            ),
+            html.Div([dcc.Graph(figure=fig)], className="w-75 mx-auto"),
+            html.Div([dcc.Graph(figure=fig2)], className="w-75 mx-auto"),
+            html.Img(
+                src=("assets/Screenshot 2024-02-19 154257.png"),
+                height=600,
+                style={"width": "68vw"},
+            ),
+        ],
+    ),
+    class_name="vw-100",
 )
