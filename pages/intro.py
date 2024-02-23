@@ -46,14 +46,14 @@ fig.add_trace(
         textposition=["bottom right", "bottom right", "bottom right", "top left"],
         textfont=dict(
             color="#005CFE",
-            size=18,
+            size=13,
         ),
     ),
 )
 fig.update_layout(
     title="Total Cost Savings by Academic Year",
     plot_bgcolor="#F2F2F2",
-    font_size=15,
+    font_size=14,
 )
 fig.update_xaxes(title="Academic Year", gridcolor="lightgray")
 fig.update_yaxes(
@@ -101,7 +101,7 @@ fig2.add_trace(
 )
 fig2.update_layout(
     plot_bgcolor="#F2F2F2",
-    font_size=15,
+    font_size=14,
     title="Number of Departments reporting OER Usage",
     xaxis=dict(title="Academic Year", gridcolor="lightgray"),
     yaxis=dict(title="Number of Departments", gridcolor="lightgray", range=[0, 30]),
@@ -111,21 +111,26 @@ fig2.update_layout(
 #                                    Layout                                    #
 # ---------------------------------------------------------------------------- #
 layout = dbc.Container(
-    html.Div(
-        [
-            html.H1("University of Iowa OER Report", className="fs-1 text-center"),
-            html.P(
-                "Click on the corresponding link to see cost savings data for each academic year",
-                className="text-center",
-            ),
-            html.Div([dcc.Graph(figure=fig)], className="w-75 mx-auto"),
-            html.Div([dcc.Graph(figure=fig2)], className="w-75 mx-auto"),
-            html.Img(
-                src=("assets/Screenshot 2024-02-19 154257.png"),
-                height=600,
-                style={"width": "68vw"},
-            ),
-        ],
-    ),
-    class_name="vw-100",
+    [
+        html.Div(
+            [
+                html.H1("University of Iowa OER Report", className="fs-1 text-center"),
+                html.P(
+                    "Click on the corresponding link to see cost savings data for each academic year",
+                    className="text-center",
+                ),
+            ],
+        ),
+        dbc.Row(
+            [
+                dbc.Col([html.Div([dcc.Graph(figure=fig)])]),
+                dbc.Col([html.Div([dcc.Graph(figure=fig2)])]),
+            ]
+        ),
+        html.Img(
+            src=("assets/Screenshot 2024-02-19 154257.png"),
+            height=600,
+            style={"width": "68vw"},
+        ),
+    ]
 )
