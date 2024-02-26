@@ -10,10 +10,13 @@ df5 = pd.read_csv("./Cleaned_Datasets/4fall_2021.csv")
 df6 = pd.read_csv("./Cleaned_Datasets/4spring_2022.csv")
 df7 = pd.read_csv("./Cleaned_Datasets/5fall_2022.csv")
 df8 = pd.read_csv("./Cleaned_Datasets/5spring_2023.csv")
+df9 = pd.read_csv("Cleaned_Datasets/6fall_2023.csv")
+df10 = pd.read_csv("Cleaned_Datasets/6spring_2024.csv")
 df19_20 = pd.concat([df, df2])
 df20_21 = pd.concat([df3, df4])
 df21_22 = pd.concat([df5, df6])
 df22_23 = pd.concat([df7, df8])
+df23_24 = pd.concat([df9, df10])
 # df10 = pd.concat([df,df2,df3,df4,df5,df6,df7,df8,df9])
 
 page_size = 10
@@ -49,6 +52,13 @@ layout = dbc.Container(
                 dash_table.DataTable(
                     df22_23.to_dict("records"),
                     [{"name": i, "id": i} for i in df22_23.columns],
+                    style_table={"overflowX": "scroll"},
+                    page_size=page_size,
+                ),
+                html.H3("2023-24 Academic Year"),
+                dash_table.DataTable(
+                    df23_24.to_dict("records"),
+                    [{"name": i, "id": i} for i in df23_24.columns],
                     style_table={"overflowX": "scroll"},
                     page_size=page_size,
                 ),

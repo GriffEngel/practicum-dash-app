@@ -21,12 +21,12 @@ import dash_bootstrap_components as dbc
 # ---------------------------------------------------------------------------- #
 # ------------------------- Total Cost Savings graph ------------------------- #
 data = {
-    "Academic Year": ["2019-20", "2020-21", "2021-22", "2022-23"],
-    "Total Cost Savings ($)": [191196.90, 301354.38, 300769.68, 466356.72],
+    "Academic Year": ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24"],
+    "Total Cost Savings ($)": [191196.90, 301354.38, 300769.68, 466356.72, 464602.62],
 }
 df11 = pd.DataFrame(data)
 
-text_labels1 = [191196.90, 301354.38, 300769.68, 466356.72]
+text_labels1 = [191196.90, 301354.38, 300769.68, 466356.72, 464602.62]
 
 fig = go.Figure()
 
@@ -43,10 +43,16 @@ fig.add_trace(
         line=dict(color="darkgray", width=3),
         text=text_labels1,
         texttemplate="%{text:$,.2f}",
-        textposition=["bottom right", "bottom right", "bottom right", "top left"],
+        textposition=[
+            "bottom right",
+            "top left",
+            "bottom right",
+            "top left",
+            "bottom left",
+        ],
         textfont=dict(
             color="#005CFE",
-            size=13,
+            size=11,
         ),
     ),
 )
@@ -75,8 +81,8 @@ fig.add_annotation(
 
 # ------------------ Number of Departments using OERs Graph ------------------ #
 dept_data = {
-    "Academic Year": ["2019-20", "2020-21", "2021-22", "2022-23"],
-    "Number of Departments Using OERs": [15, 11, 19, 25],
+    "Academic Year": ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24"],
+    "Number of Departments Using OERs": [15, 11, 19, 25, 26],
 }
 df12 = pd.DataFrame(dept_data)
 
@@ -128,7 +134,7 @@ layout = dbc.Container(
             ]
         ),
         html.Img(
-            src=("assets/Screenshot 2024-02-19 154257.png"),
+            src=("assets/Screenshot 2024-02-26 163212.png"),
             height=600,
             style={"width": "68vw"},
         ),
