@@ -91,7 +91,7 @@ def update_graph(selected_category):
     fig.update_traces(
         texttemplate="%{text:$,.0f}",
         textposition="outside",
-        marker_color="#005CFE",
+        marker_color="blue",
     )
     fig.update_xaxes(showgrid=False)
     fig.update_yaxes(showgrid=False, showticklabels=False)
