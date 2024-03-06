@@ -1,4 +1,4 @@
-from dash import html, dcc
+from dash import html, dcc, callback, Output, Input, State
 import pandas as pd
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
@@ -37,10 +37,11 @@ fig.add_trace(
         mode="lines+markers+text",
         marker=dict(
             size=12,
-            color="#005CFE",
+            # color="#005CFE",
             symbol="circle",
         ),
-        line=dict(color="darkgray", width=3),
+        line=dict(width=3),
+        # line=dict(color="darkgray", width=3),
         text=text_labels1,
         texttemplate="%{text:$,.2f}",
         textposition=[
@@ -51,32 +52,34 @@ fig.add_trace(
             "bottom left",
         ],
         textfont=dict(
-            color="#005CFE",
+            # color="#005CFE",
             size=11,
         ),
     ),
 )
 fig.update_layout(
     title="Total Cost Savings by Academic Year",
-    plot_bgcolor="#F2F2F2",
+    # plot_bgcolor="#F2F2F2",
     font_size=14,
+    template="ggplot2",
+    paper_bgcolor="#FCFCFC",
 )
-fig.update_xaxes(title="Academic Year", gridcolor="lightgray")
+fig.update_xaxes(title="Academic Year")
 fig.update_yaxes(
     range=[0, 600000],
     title="Cost Savings ($)",
-    gridcolor="lightgray",
+    # gridcolor="lightgray",
 )
 fig.add_annotation(
     x=2.5,
     y=400000,
     text="55% increase",
     arrowhead=1,
-    font=dict(family="Balto, sans-serif", size=14, color="#005CFE"),
+    font=dict(size=14),
     ax=-75,
     ay=-15,
     arrowwidth=2,
-    arrowcolor="#005CFE",
+    # arrowcolor="#005CFE",
 )
 
 # ------------------ Number of Departments using OERs Graph ------------------ #
@@ -113,11 +116,34 @@ fig2.update_layout(
     yaxis=dict(title="Number of Departments", gridcolor="lightgray", range=[0, 30]),
 )
 
+# ------------------------------ Modal Callback ------------------------------ #
+
+
+# @callback(
+#     Output("modal", "is_open"),
+#     Input("modal", "is_open"),
+#     State("modal", "is_open"),
+# )
+# def toggle_modal(n1, n2, is_open):
+#     if n1 or n2:
+#         return not is_open
+#     return is_open
+
 # ---------------------------------------------------------------------------- #
 #                                    Layout                                    #
 # ---------------------------------------------------------------------------- #
 layout = dbc.Container(
     [
+        dbc.Modal(
+            [
+                dbc.ModalHeader("HEADER"),
+                dbc.ModalBody("BODY OF MODAL"),
+                dbc.ModalFooter(
+                    dbc.Button("CLOSE BUTTON", id="close", className="ml-auto")
+                ),
+            ],
+            id="modal",
+        ),
         html.Div(
             [
                 html.H1("University of Iowa OER Report", className="fs-1 text-center"),
@@ -137,6 +163,11 @@ layout = dbc.Container(
             src=("assets/Screenshot 2024-02-26 163212.png"),
             height=600,
             style={"width": "68vw"},
+        ),
+        dbc.Container(
+            [
+                dbc.Button("Creator Profile", id="open"),
+            ]
         ),
     ]
 )
