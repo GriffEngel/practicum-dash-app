@@ -58,12 +58,23 @@ fig.update_layout(
     title="Total Cost Savings by Academic Year",
     font_size=14,
     template="plotly",
-    # width=725,
-)
-fig.update_xaxes(title="Academic Year")
-fig.update_yaxes(
-    range=[0, 600000],
-    title="Cost Savings ($)",
+    xaxis=dict(
+        title="Academic Year",
+        tickmode="auto",
+        dtick=1,
+        ticklen=10,
+        tickwidth=2,
+        tickcolor="#000000",
+    ),
+    yaxis=dict(
+        range=[0, 600000],
+        title="Cost Savings ($)",
+        tickmode="auto",
+        dtick=1,
+        ticklen=10,
+        tickwidth=2,
+        tickcolor="#000000",
+    ),
 )
 fig.add_annotation(
     x=2.5,
@@ -92,22 +103,25 @@ fig2.add_trace(
         mode="lines+markers+text",
         marker=dict(
             size=12,
-            color="#005CFE",
             symbol="circle",
         ),
-        line=dict(color="darkgray", width=3),
+        line=dict(width=3),
         textfont=dict(
-            color="#005CFE",
             size=18,
         ),
     ),
 )
 fig2.update_layout(
-    plot_bgcolor="#F2F2F2",
     font_size=14,
+    template="plotly",
     title="Number of Departments reporting OER Usage",
-    xaxis=dict(title="Academic Year", gridcolor="lightgray"),
-    yaxis=dict(title="Number of Departments", gridcolor="lightgray", range=[0, 30]),
+    xaxis=dict(
+        title="Academic Year",
+    ),
+    yaxis=dict(
+        title="Number of Departments",
+        range=[0, 30],
+    ),
 )
 
 # ---------------------------------------------------------------------------- #
@@ -134,10 +148,31 @@ layout = dbc.Container(
             src=("assets/Screenshot 2024-02-26 163212.png"),
             height=600,
             style={"width": "68vw"},
+            className="mb-2",
         ),
         dbc.Container(
             [
-                dbc.Button("Creator Profile", id="open"),
+                html.H5("Dashboard created by Griffin Engel"),
+                html.A(
+                    "LinkedIn",
+                    href="https://www.linkedin.com/in/griffin-engel-066b12224/",
+                    className="mx-3",
+                ),
+                html.A(
+                    "Full Portfolio",
+                    href="https://www.datascienceportfol.io/griffinengel",
+                ),
+            ],
+            className="flex text-center",
+        ),
+        dbc.Container(
+            [
+                html.Div(
+                    [
+                        "University of Iowa OER Report © 2024 by Griffin Engel is licensed under CC BY-NC-ND 4.0"
+                    ],
+                    className="text-center my-2",
+                )
             ]
         ),
     ]

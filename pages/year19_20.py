@@ -18,23 +18,14 @@ fig1.add_trace(
     go.Bar(
         x=aggregated_df["Department"],
         y=aggregated_df["Cost Savings ($)"],
-        # marker=dict(color="blue"),
     )
 )
 
-fig1.update_layout(template="plotly")
-
-# fig1.update_layout(
-#     title="Cost Savings by Department",
-#     xaxis_title="Department",
-#     yaxis_title="Cost Savings",
-#     yaxis_tickprefix="$",
-#     yaxis_tickformat=",.0f",
-#     plot_bgcolor="#F2F2F2",
-#     font_size=13,
-# )
-fig1.update_xaxes(categoryorder="total descending", showgrid=False)
-fig1.update_yaxes(gridcolor="lightgray")
+fig1.update_layout(
+    template="plotly",
+    xaxis=dict(categoryorder="total descending", showgrid=False),
+    yaxis=dict(gridcolor="lightgray"),
+)
 
 layout = dbc.Container(
     [
@@ -88,12 +79,15 @@ def update_graph(selected_category):
         title="Breakdown by Individual Course",
         height=500,
     )
-    fig.update_layout(template="seaborn", font_size=13, autosize=True)
-    fig.update_xaxes(categoryorder="total descending")
+    fig.update_layout(
+        template="plotly",
+        font_size=13,
+        autosize=True,
+        xaxis=dict(categoryorder="total descending", showgrid=False),
+        yaxis=dict(showgrid=False, showticklabels=False),
+    )
     fig.update_traces(
         texttemplate="%{text:$,.0f}",
         textposition="outside",
     )
-    fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=False, showticklabels=False)
     return fig
