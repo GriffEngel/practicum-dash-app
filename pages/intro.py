@@ -22,11 +22,11 @@ import dash_bootstrap_components as dbc
 # ------------------------- Total Cost Savings graph ------------------------- #
 data = {
     "Academic Year": ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24"],
-    "Total Cost Savings ($)": [191196.90, 301354.38, 300769.68, 466356.72, 464602.62],
+    "Total Cost Savings ($)": [191197, 301354, 300770, 466357, 464603],
 }
 df11 = pd.DataFrame(data)
 
-text_labels1 = [191196.90, 301354.38, 300769.68, 466356.72, 464602.62]
+text_labels1 = [191197, 301354, 300770, 466357, 464603]
 
 fig = go.Figure()
 
@@ -36,39 +36,34 @@ fig.add_trace(
         y=df11["Total Cost Savings ($)"],
         mode="lines+markers+text",
         marker=dict(
-            size=12,
-            # color="#005CFE",
+            size=14,
             symbol="circle",
         ),
         line=dict(width=3),
-        # line=dict(color="darkgray", width=3),
         text=text_labels1,
-        texttemplate="%{text:$,.2f}",
+        texttemplate="%{text:$,}",
         textposition=[
             "bottom right",
             "top left",
             "bottom right",
             "top left",
-            "bottom left",
+            "bottom center",
         ],
         textfont=dict(
-            # color="#005CFE",
-            size=11,
+            size=10,
         ),
     ),
 )
 fig.update_layout(
     title="Total Cost Savings by Academic Year",
-    # plot_bgcolor="#F2F2F2",
     font_size=14,
-    template="ggplot2",
-    paper_bgcolor="#FCFCFC",
+    template="plotly",
+    # width=725,
 )
 fig.update_xaxes(title="Academic Year")
 fig.update_yaxes(
     range=[0, 600000],
     title="Cost Savings ($)",
-    # gridcolor="lightgray",
 )
 fig.add_annotation(
     x=2.5,
@@ -79,7 +74,6 @@ fig.add_annotation(
     ax=-75,
     ay=-15,
     arrowwidth=2,
-    # arrowcolor="#005CFE",
 )
 
 # ------------------ Number of Departments using OERs Graph ------------------ #
@@ -116,34 +110,11 @@ fig2.update_layout(
     yaxis=dict(title="Number of Departments", gridcolor="lightgray", range=[0, 30]),
 )
 
-# ------------------------------ Modal Callback ------------------------------ #
-
-
-# @callback(
-#     Output("modal", "is_open"),
-#     Input("modal", "is_open"),
-#     State("modal", "is_open"),
-# )
-# def toggle_modal(n1, n2, is_open):
-#     if n1 or n2:
-#         return not is_open
-#     return is_open
-
 # ---------------------------------------------------------------------------- #
 #                                    Layout                                    #
 # ---------------------------------------------------------------------------- #
 layout = dbc.Container(
     [
-        dbc.Modal(
-            [
-                dbc.ModalHeader("HEADER"),
-                dbc.ModalBody("BODY OF MODAL"),
-                dbc.ModalFooter(
-                    dbc.Button("CLOSE BUTTON", id="close", className="ml-auto")
-                ),
-            ],
-            id="modal",
-        ),
         html.Div(
             [
                 html.H1("University of Iowa OER Report", className="fs-1 text-center"),
