@@ -60,20 +60,10 @@ fig.update_layout(
     template="plotly",
     xaxis=dict(
         title="Academic Year",
-        tickmode="auto",
-        dtick=1,
-        ticklen=10,
-        tickwidth=2,
-        tickcolor="#000000",
     ),
     yaxis=dict(
         range=[0, 600000],
         title="Cost Savings ($)",
-        tickmode="auto",
-        dtick=1,
-        ticklen=10,
-        tickwidth=2,
-        tickcolor="#000000",
     ),
 )
 fig.add_annotation(
@@ -102,7 +92,7 @@ fig2.add_trace(
         y=df12["Number of Departments Using OERs"],
         mode="lines+markers+text",
         marker=dict(
-            size=12,
+            size=14,
             symbol="circle",
         ),
         line=dict(width=3),
