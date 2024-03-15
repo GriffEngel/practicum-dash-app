@@ -1,4 +1,4 @@
-from dash import html, dcc, callback, Output, Input, State
+from dash import html, dcc, callback, Output, Input
 import pandas as pd
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
@@ -122,7 +122,7 @@ layout = dbc.Container(
             ]
         ),
         html.Img(
-            src=("assets/Screenshot 2024-02-26 163212.png"),
+            src=("assets/image.png"),
             height=600,
             style={"width": "68vw"},
             className="mb-2",

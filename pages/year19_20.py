@@ -4,14 +4,14 @@ import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
-
+# ---------------------------- Importing Datasets ---------------------------- #
 df = pd.read_csv("./Cleaned_Datasets/1fall_2019.csv")
 df2 = pd.read_csv("./Cleaned_Datasets/1spring_2020.csv")
 df3 = pd.concat([df, df2])
 total = df3["Cost Savings ($)"].sum()
 
 aggregated_df = df3.groupby("Department")["Cost Savings ($)"].sum().reset_index()
-
+# ------------------------------- Top Bar Chart ------------------------------ #
 fig1 = go.Figure()
 
 fig1.add_trace(
@@ -24,9 +24,8 @@ fig1.add_trace(
 fig1.update_layout(
     template="plotly",
     xaxis=dict(categoryorder="total descending", showgrid=False),
-    yaxis=dict(gridcolor="lightgray"),
 )
-
+# ---------------------------------- Layout ---------------------------------- #
 layout = dbc.Container(
     [
         dbc.Row(
@@ -65,6 +64,7 @@ layout = dbc.Container(
 )
 
 
+# --------------------------- Interactive Bar Chart -------------------------- #
 @callback(
     Output("category-bar-graph19-20", "figure"),
     Input("category-dropdown19-20", "value"),
