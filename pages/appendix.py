@@ -25,7 +25,14 @@ layout = dbc.Container(
     [
         dbc.Col(
             [
-                html.H1("Appendix", className="text-center"),
+                html.H1(
+                    "Appendix",
+                    className="fs-1 shadow-sm p-3 mb-2 bg-body-secondary rounded text-center",
+                ),
+                html.P(
+                    "Raw data used to make this dashboard",
+                    className="text-center text-primary",
+                ),
                 html.Br(),
                 html.H3("2019-20 Academic Year"),
                 dash_table.DataTable(

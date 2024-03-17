@@ -23,7 +23,10 @@ fig1.add_trace(
 
 fig1.update_layout(
     template="plotly",
-    xaxis=dict(categoryorder="total descending", showgrid=False),
+    title="Cost Savings by Department",
+    font_size=13,
+    xaxis=dict(categoryorder="total descending", showgrid=False, title="Department"),
+    yaxis=dict(title="Cost Savings ($)"),
 )
 # ---------------------------------- Layout ---------------------------------- #
 layout = dbc.Container(
@@ -33,9 +36,9 @@ layout = dbc.Container(
                 # ! Extra Div needs to be here in order for dcc.Graph style to work
                 html.Div(
                     [
-                        html.H3(
-                            f"The University of Iowa saved students ${total:,.2f} in textbook costs in 19-20",
-                            className="text-center fs-5",
+                        html.H2(
+                            f"The University of Iowa saved students ${total:,.2f} in textbook costs in 2019-20",
+                            className="text-center shadow-sm p-3 mb-2 rounded text-center fs-5",
                         ),
                         dcc.Graph(figure=fig1, style={"width": "77vw"}),
                         dcc.Dropdown(
@@ -46,6 +49,7 @@ layout = dbc.Container(
                             ],
                             value="Economics",
                             clearable=False,
+                            className="shadow-sm p-3 mb-2 mt-4 rounded border border-info border-1",
                         ),
                     ]
                 ),

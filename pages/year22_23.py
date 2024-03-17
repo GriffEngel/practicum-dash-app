@@ -38,7 +38,7 @@ layout = dbc.Container(
                 html.Div(
                     [
                         html.H3(
-                            f"The University of Iowa saved students ${total:,.2f} in textbook costs in 22-23",
+                            f"The University of Iowa saved students ${total:,.2f} in textbook costs in 2022-23",
                             className="text-center fs-5",
                         ),
                         dcc.Graph(figure=fig1, style={"width": "80vw"}),
@@ -50,6 +50,7 @@ layout = dbc.Container(
                             ],
                             value="Economics",
                             clearable=False,
+                            className="shadow-sm p-3 mb-2 mt-2 rounded border border-info border-1",
                         ),
                     ],
                 ),

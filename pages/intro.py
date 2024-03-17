@@ -58,10 +58,30 @@ fig.add_annotation(
     y=400000,
     text="55% increase",
     arrowhead=1,
-    font=dict(size=14),
+    font=dict(size=12),
     ax=-75,
     ay=-15,
     arrowwidth=2,
+)
+
+fig.add_annotation(
+    x=3.85,
+    y=400000,
+    text="143% increase since <br> the 2019-20 academic year",
+    font=dict(size=12),
+    arrowhead=1,
+    arrowwidth=2,
+    ax=-50,
+    ay=100,
+)
+
+fig.add_annotation(
+    x=1,
+    y=165000,
+    arrowhead=1,
+    arrowwidth=2,
+    ax=85,
+    ay=2,
 )
 
 # ------------------ Number of Departments using OERs Graph ------------------ #
@@ -108,10 +128,13 @@ layout = dbc.Container(
     [
         html.Div(
             [
-                html.H1("University of Iowa OER Report", className="fs-1 text-center"),
+                html.H1(
+                    "University of Iowa OER Report",
+                    className="fs-1 shadow-sm p-3 mb-2 bg-body-secondary rounded text-center",
+                ),
                 html.P(
-                    "Click on the corresponding link to see cost savings data for each academic year",
-                    className="text-center",
+                    "Please select the appropriate link to access the cost savings data for each academic year.",
+                    className="text-center text-primary",
                 ),
             ],
         ),
@@ -124,8 +147,8 @@ layout = dbc.Container(
         html.Img(
             src=("assets/image.png"),
             height=600,
-            style={"width": "68vw"},
-            className="mb-2",
+            style={"width": "68vw", "display": "block", "margin": "auto"},
+            className="mb-4 mx-auto",
         ),
         dbc.Container(
             [
@@ -146,11 +169,11 @@ layout = dbc.Container(
             [
                 html.Div(
                     [
-                        "University of Iowa OER Report © 2024 by Griffin Engel is licensed under CC BY-NC-ND 4.0"
+                        "University of Iowa OER Report © 2024 by Griffin Engel is licensed under CC BY-NC 4.0"
                     ],
                     className="text-center my-2",
                 )
             ]
         ),
-    ]
+    ],
 )
