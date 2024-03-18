@@ -8,7 +8,7 @@ import dash_bootstrap_components as dbc
 df = pd.read_csv("./Cleaned_Datasets/1fall_2019.csv")
 df2 = pd.read_csv("./Cleaned_Datasets/1spring_2020.csv")
 df3 = pd.concat([df, df2])
-total = df3["Cost Savings ($)"].sum()
+total = 191197
 
 aggregated_df = df3.groupby("Department")["Cost Savings ($)"].sum().reset_index()
 # ------------------------------- Top Bar Chart ------------------------------ #
@@ -37,7 +37,7 @@ layout = dbc.Container(
                 html.Div(
                     [
                         html.H2(
-                            f"The University of Iowa saved students ${total:,.2f} in textbook costs in 2019-20",
+                            f"The University of Iowa saved students ${total:,} in textbook costs in 2019-20",
                             className="text-center shadow-sm p-3 mb-2 rounded text-center fs-5",
                         ),
                         dcc.Graph(figure=fig1, style={"width": "77vw"}),

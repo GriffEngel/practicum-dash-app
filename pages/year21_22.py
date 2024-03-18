@@ -8,7 +8,7 @@ import dash_bootstrap_components as dbc
 df = pd.read_csv("./Cleaned_Datasets/4fall_2021.csv")
 df2 = pd.read_csv("./Cleaned_Datasets/4spring_2022.csv")
 df3 = pd.concat([df, df2])
-total = df3["Cost Savings ($)"].sum()
+total = 300770
 
 aggregated_df = df3.groupby("Department")["Cost Savings ($)"].sum().reset_index()
 
@@ -38,8 +38,8 @@ layout = dbc.Container(
                 html.Div(
                     [
                         html.H3(
-                            f"The University of Iowa saved students ${total:,.2f} in textbook costs in 2021-22",
-                            className="text-center fs-5",
+                            f"The University of Iowa saved students ${total:,} in textbook costs in 2021-22",
+                            className="text-center shadow-sm p-3 mb-2 rounded text-center fs-5",
                         ),
                         dcc.Graph(figure=fig1, style={"width": "77vw"}),
                         dcc.Dropdown(
