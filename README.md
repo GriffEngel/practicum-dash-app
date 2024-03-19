@@ -6,12 +6,12 @@
 - After it is hosted somewhere I will place the link in the README, for now I will take screenshots and post them below
 
 - Home page
-![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/e45a10a6-8f7f-4a11-ac5e-01222b98837b)
+![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/8e902c55-b1f8-418b-aa11-5dd25f126670)
 - Cost savings by department
-![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/3bc91ead-9541-40a6-acf7-d53c3c90c2d6)
+![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/8b357030-29ac-4e9d-a711-aa7b1dbe2b71)
 - Breakdown by course
-![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/18c29b7a-3d71-422e-bbd1-b4e4e5562336)
+![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/e3ae2ed1-0ae8-4529-a5ff-f68d50f75cf9)
 - Interactive dropdown
-![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/fc3f415d-b5a9-4018-bfa8-d89e28507593)
+![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/66ff2a48-58fd-4738-a895-034953d12f42)
 - Appendix
-![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/d540b2a9-c176-4bc0-b3ef-93a678d9b926)
+![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/781c8ba7-b81d-4f4b-bd35-ad99fd4d0b46)
