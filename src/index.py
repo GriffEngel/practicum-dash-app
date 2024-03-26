@@ -1,7 +1,22 @@
-from dash import html, dcc, callback, Output, Input
+from dash import html, dcc, callback, Output, Input, Dash
 import dash_bootstrap_components as dbc
 from src.app import app
 from pages import intro, year19_20, year20_21, year21_22, year22_23, year23_24, appendix
+
+
+app = Dash(
+    __name__,
+    external_stylesheets=[dbc.themes.LUX],
+    suppress_callback_exceptions=True,
+    meta_tags=[
+        {
+            "name": "viewport",
+            "content": "width=device-width, initial-scale=1.0",
+        }
+    ],
+)
+server = app.server
+
 
 app.layout = dbc.Nav(
     html.Div(
