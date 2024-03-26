@@ -1,6 +1,7 @@
 from dash import html, dash_table
 import pandas as pd
 import dash_bootstrap_components as dbc
+from src.app import app
 
 df = pd.read_csv("./Cleaned_Datasets/1fall_2019.csv")
 df2 = pd.read_csv("./Cleaned_Datasets/1spring_2020.csv")
@@ -21,7 +22,7 @@ df23_24 = pd.concat([df9, df10])
 
 page_size = 10
 
-layout = dbc.Container(
+app.layout = dbc.Container(
     [
         dbc.Col(
             [

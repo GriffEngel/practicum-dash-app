@@ -2,6 +2,7 @@ from dash import html, dcc, callback, Output, Input
 import pandas as pd
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
+from src.app import app
 
 # ---------------------------------------------------------------------------- #
 #                                    Graphs                                    #
@@ -124,7 +125,7 @@ fig2.update_layout(
 # ---------------------------------------------------------------------------- #
 #                                    Layout                                    #
 # ---------------------------------------------------------------------------- #
-layout = dbc.Container(
+app.layout = dbc.Container(
     [
         html.Div(
             [

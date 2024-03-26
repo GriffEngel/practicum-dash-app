@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
+from src.app import app
 
 # ---------------------------- Importing Datasets ---------------------------- #
 df = pd.read_csv("./Cleaned_Datasets/3fall_2020.csv")
@@ -29,7 +30,7 @@ fig1.update_layout(
     yaxis=dict(title="Cost Savings", tickprefix="$", tickformat=",.0f"),
 )
 
-layout = dbc.Container(
+app.layout = dbc.Container(
     [
         dbc.Row(
             [

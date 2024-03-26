@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
+from src.app import app
 
 
 df = pd.read_csv("./Cleaned_Datasets/5fall_2022.csv")
@@ -30,7 +31,7 @@ fig1.update_layout(
 )
 
 
-layout = dbc.Container(
+app.layout = dbc.Container(
     [
         dbc.Row(
             [
