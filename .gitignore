@@ -230,3 +230,5 @@ __pycache__/
 .env
 Base_Dataset/
 cleaning_notebooks/
+*.pyc
+.DS_Store
