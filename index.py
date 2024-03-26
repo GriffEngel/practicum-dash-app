@@ -50,8 +50,8 @@ def display_page(pathname):
     elif pathname == "/appendix":
         return appendix.layout
     else:
-        return "404"
+        return "404 - page not found"
 
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=True)
