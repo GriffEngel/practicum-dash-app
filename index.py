@@ -1,6 +1,6 @@
 from dash import html, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
-from app import app
+from src.app import app
 from pages import intro, year19_20, year20_21, year21_22, year22_23, year23_24, appendix
 
 app.layout = dbc.Nav(
