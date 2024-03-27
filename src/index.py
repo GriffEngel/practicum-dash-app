@@ -1,6 +1,5 @@
 from dash import html, dcc, callback, Output, Input, Dash
 import dash_bootstrap_components as dbc
-from app import app, server
 from pages import intro, year19_20, year20_21, year21_22, year22_23, year23_24, appendix
 
 app = Dash(
