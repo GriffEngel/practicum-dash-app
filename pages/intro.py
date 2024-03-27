@@ -146,7 +146,7 @@ layout = dbc.Container(
             ]
         ),
         html.Img(
-            src=("assets/image.png"),
+            src=("../assets/image.png"),
             height=600,
             style={"width": "68vw", "display": "block", "margin": "auto"},
             className="mb-4 mx-auto",
