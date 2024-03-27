@@ -22,7 +22,7 @@ df23_24 = pd.concat([df9, df10])
 
 page_size = 10
 
-app.layout = dbc.Container(
+layout = dbc.Container(
     [
         dbc.Col(
             [
