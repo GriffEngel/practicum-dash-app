@@ -32,7 +32,7 @@ fig1.update_layout(
 )
 
 
-app.layout = dbc.Container(
+layout = dbc.Container(
     [
         dbc.Row(
             [

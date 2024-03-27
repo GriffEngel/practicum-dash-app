@@ -30,7 +30,7 @@ fig1.update_layout(
     yaxis=dict(title="Cost Savings ($)"),
 )
 # ---------------------------------- Layout ---------------------------------- #
-app.layout = dbc.Container(
+layout = dbc.Container(
     [
         dbc.Row(
             [
