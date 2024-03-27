@@ -6,8 +6,8 @@ import dash_bootstrap_components as dbc
 from src.app import app
 
 # ---------------------------- Importing Datasets ---------------------------- #
-df = pd.read_csv("./Cleaned_Datasets/3fall_2020.csv")
-df2 = pd.read_csv("./Cleaned_Datasets/3spring_2021.csv")
+df = pd.read_csv("../Cleaned_Datasets/3fall_2020.csv")
+df2 = pd.read_csv("../Cleaned_Datasets/3spring_2021.csv")
 df3 = pd.concat([df, df2])
 total = 301354
 
