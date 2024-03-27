@@ -54,5 +54,6 @@ def display_page(pathname):
         return "404 - page not found"
 
 
+server = app.server
 if __name__ == "__main__":
     app.run_server(debug=True)
