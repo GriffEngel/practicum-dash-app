@@ -1,13 +1,12 @@
-# Dashboard to display cost savings for students that use open educational resources
+# University of Iowa OER Report
 
-## Tools Used
+This dashboard visualizes student cost savings as a result of open educational resource usage from the 2019-2020 school year to the 2023-2024 school year.
 
-- Python
-- Dash
-- Excel
-- Bootstrap
+## Link
 
-### Screenshots
+[Hosted version](https://university-of-iowa-oer-dashboard.onrender.com/)
+
+## Screenshots
 
 - Home page
 ![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/8e902c55-b1f8-418b-aa11-5dd25f126670)
@@ -19,3 +18,7 @@
 ![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/66ff2a48-58fd-4738-a895-034953d12f42)
 - Appendix
 ![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/781c8ba7-b81d-4f4b-bd35-ad99fd4d0b46)
+
+## License
+
+[CC BY 4.0](http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1)
