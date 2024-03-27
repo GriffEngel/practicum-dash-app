@@ -4,7 +4,7 @@ from pages import intro, year19_20, year20_21, year21_22, year22_23, year23_24, 
 
 app = Dash(
     __name__,
-    external_stylesheets=[dbc.themes.LUMEN],
+    external_stylesheets=[dbc.themes.LUX],
     suppress_callback_exceptions=True,
     meta_tags=[
         {
