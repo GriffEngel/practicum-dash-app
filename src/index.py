@@ -3,6 +3,18 @@ import dash_bootstrap_components as dbc
 from app import app, server
 from pages import intro, year19_20, year20_21, year21_22, year22_23, year23_24, appendix
 
+app = Dash(
+    __name__,
+    external_stylesheets=[dbc.themes.LUX],
+    suppress_callback_exceptions=True,
+    meta_tags=[
+        {
+            "name": "viewport",
+            "content": "width=device-width, initial-scale=1.0",
+        }
+    ],
+)
+server = app.server
 
 app.layout = dbc.Nav(
     html.Div(
@@ -54,6 +66,5 @@ def display_page(pathname):
         return "404 - page not found"
 
 
-server = app.server
 if __name__ == "__main__":
     app.run_server(debug=True)
