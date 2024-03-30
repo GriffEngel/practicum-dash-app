@@ -232,3 +232,4 @@ Base_Dataset/
 cleaning_notebooks/
 *.pyc
 .DS_Store
+render.yaml
