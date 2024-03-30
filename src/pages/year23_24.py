@@ -3,15 +3,15 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
-from src.app import app
 
 
-df = pd.read_csv("../Cleaned_Datasets/5fall_2022.csv")
-df2 = pd.read_csv("../Cleaned_Datasets/5spring_2023.csv")
+df = pd.read_csv("./Cleaned_Datasets/6fall_2023.csv")
+df2 = pd.read_csv("./Cleaned_Datasets/6spring_2024.csv")
 df3 = pd.concat([df, df2])
-total = 466357
+total = 464603
 
 aggregated_df = df3.groupby("Department")["Cost Savings ($)"].sum().reset_index()
+# options_list = {"label": i, "value": i} for i in df3["Department "].unique()
 
 fig1 = go.Figure()
 
@@ -39,17 +39,17 @@ layout = dbc.Container(
                 html.Div(
                     [
                         html.H3(
-                            f"The University of Iowa saved students ${total:,} in textbook costs in 2022-23",
+                            f"The University of Iowa saved students ${total:,} in textbook costs in 2023-24",
                             className="text-center shadow-sm p-3 mb-2 rounded text-center fs-5",
                         ),
                         dcc.Graph(figure=fig1, style={"width": "80vw"}),
                         dcc.Dropdown(
-                            id="category-dropdown22-23",
+                            id="category-dropdown23-24",
                             options=[
                                 {"label": i, "value": i}
                                 for i in df3["Department"].unique()
                             ],
-                            value="Economics",
+                            value="Management",
                             clearable=False,
                             className="shadow-sm p-3 mb-2 mt-2 rounded border border-info border-1",
                         ),
@@ -58,7 +58,7 @@ layout = dbc.Container(
                 dbc.Row(
                     [
                         dcc.Graph(
-                            id="category-bar-graph22-23",
+                            id="category-bar-graph23-24",
                             style={"height": "63vh"},
                         )
                     ]
@@ -71,8 +71,8 @@ layout = dbc.Container(
 
 
 @callback(
-    Output("category-bar-graph22-23", "figure"),
-    Input("category-dropdown22-23", "value"),
+    Output("category-bar-graph23-24", "figure"),
+    Input("category-dropdown23-24", "value"),
 )
 def update_graph(selected_category):
     filtered_df = df3[df3["Department"] == selected_category]

@@ -2,7 +2,6 @@ from dash import html, dcc, callback, Output, Input
 import pandas as pd
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
-from src.app import app
 
 # ---------------------------------------------------------------------------- #
 #                                    Graphs                                    #
