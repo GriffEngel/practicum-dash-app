@@ -231,7 +231,7 @@ layout = dbc.Container(
             [
                 html.Div(
                     [
-                        "University of Iowa OER Report © 2024 by Griffin Engel is licensed under CC BY 4.0 "
+                        "University of Iowa OER Report © 2024 by Griffin Engel is licensed under CC BY NC 4.0"
                     ],
                     className="text-center my-2",
                 )
