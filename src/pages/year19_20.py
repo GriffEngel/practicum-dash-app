@@ -5,8 +5,8 @@ import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
 # ---------------------------- Importing Datasets ---------------------------- #
-df = pd.read_csv("./Cleaned_Datasets/1fall_2019.csv")
-df2 = pd.read_csv("./Cleaned_Datasets/1spring_2020.csv")
+df = pd.read_csv("../Cleaned_Datasets/1fall_2019.csv")
+df2 = pd.read_csv("../Cleaned_Datasets/1spring_2020.csv")
 df3 = pd.concat([df, df2])
 total = 191197
 

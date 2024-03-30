@@ -121,6 +121,43 @@ fig2.update_layout(
     ),
 )
 
+# ----------------------------- Total Enrollment ----------------------------- #
+enrollment_data = {
+    "Academic Year": ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24"],
+    "Total Enrollment": [1635, 2577, 2572, 3988, 3973],
+}
+df13 = pd.DataFrame(enrollment_data)
+
+fig3 = go.Figure()
+
+fig3.add_trace(
+    go.Scatter(
+        x=df13['Academic Year'],
+        y=df13['Total Enrollment'],
+        mode="lines+markers+text",
+        marker=dict(
+            size=14,
+            symbol="circle",
+        ),
+        line=dict(width=3),
+        textfont=dict(
+            size=18,
+        )
+    )
+)
+
+fig3.update_layout(
+    template='plotly',
+    font_size=14,
+    title="Total Students Using OERs",
+    xaxis=dict(
+        title="Academic Year"
+    ),
+    yaxis=dict(
+        title="Number of Students"
+    )
+)
+
 # ---------------------------------------------------------------------------- #
 #                                    Layout                                    #
 # ---------------------------------------------------------------------------- #
@@ -140,32 +177,57 @@ layout = dbc.Container(
         ),
         dbc.Row(
             [
-                dbc.Col([html.Div([dcc.Graph(figure=fig)])]),
-                dbc.Col([html.Div([dcc.Graph(figure=fig2)])]),
+                dbc.Col(html.Div(dcc.Graph(figure=fig)), xs=12, sm=12, md=12, lg=6),
+                dbc.Col(html.Div(dcc.Graph(figure=fig2)), xs=12, sm=12, md=12, lg=6),
+            ],
+        ),
+        dbc.Row(
+            [
+                dbc.Col(html.Div(dcc.Graph(figure=fig3)), width=12),
             ]
         ),
-        html.Img(
-            src=("src/assets/image.png"),
-            height=600,
-            style={"width": "68vw", "display": "block", "margin": "auto"},
-            className="mb-4 mx-auto",
-        ),
-        dbc.Container(
+        dbc.Row(
             [
                 html.H5("Dashboard created by Griffin Engel"),
-                html.A(
+                dbc.Col([
+                    html.A(
+                    "GitHub",
+                    href="https://github.com/GriffEngel"),
+                ], width="auto"),
+                dbc.Col([
+                    html.A(
+                    "Kaggle",
+                    href="https://www.kaggle.com/griffinengel/code"),
+                ], width="auto"),
+                dbc.Col([
+                    html.A(
                     "LinkedIn",
-                    href="https://www.linkedin.com/in/griffin-engel-066b12224/",
-                    className="mx-3",
+                    href="https://www.linkedin.com/in/griffin-engel-066b12224/"
                 ),
-                html.A(
+                ], width="auto"),
+                dbc.Col([
+                    html.A(
                     "Full Portfolio",
-                    href="https://www.datascienceportfol.io/griffinengel",
-                ),
+                    href="https://griffengel.github.io/"
+                ), 
+                ], width="auto"),
+                dbc.Col([
+                    html.A(
+                    "Tableau",
+                    href="https://public.tableau.com/app/profile/griffin.engel/vizzes"
+                ), 
+                ], width="auto"),
+                dbc.Col([
+                    html.A(
+                    "X/Twitter",
+                    href="https://twitter.com/DataVizGriff"
+                ), 
+                ], width="auto"),
+                
             ],
-            className="flex text-center",
+            className="flex text-center justify-content-center",
         ),
-        dbc.Container(
+        dbc.Row(
             [
                 html.Div(
                     [
@@ -175,5 +237,6 @@ layout = dbc.Container(
                 )
             ]
         ),
-    ],
+    ], 
+    style={"width": "100vw"}
 )
