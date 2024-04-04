@@ -9,7 +9,7 @@ This dashboard visualizes student cost savings as a result of open educational r
 ## Screenshots
 
 - Home page
-![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/8e902c55-b1f8-418b-aa11-5dd25f126670)
+![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/2f0a5a5c-0685-46b3-8ede-02719db7d94e)
 - Cost savings by department
 ![image](https://github.com/GriffEngel/practicum-dash-app/assets/125166144/8b357030-29ac-4e9d-a711-aa7b1dbe2b71)
 - Breakdown by course
