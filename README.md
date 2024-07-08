@@ -4,7 +4,7 @@ This dashboard visualizes student cost savings as a result of open educational r
 
 ## Link
 
-[Hosted version](https://university-of-iowa-oer-dashboard.onrender.com/)
+[Hosted version](http://s-lib007.lib.uiowa.edu:8050/)
 
 ## Screenshots
 
